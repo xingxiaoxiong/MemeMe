@@ -13,6 +13,7 @@
 		B905D9DA1B2FCD610053B7C2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B905D9D91B2FCD610053B7C2 /* Images.xcassets */; };
 		B905D9DD1B2FCD610053B7C2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B905D9DB1B2FCD610053B7C2 /* LaunchScreen.xib */; };
 		B905D9E91B2FCD620053B7C2 /* ImagePickerTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905D9E81B2FCD620053B7C2 /* ImagePickerTestTests.swift */; };
+		B905D9F31B31B7130053B7C2 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905D9F21B31B7130053B7C2 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		B905D9E21B2FCD620053B7C2 /* ImagePickerTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImagePickerTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B905D9E71B2FCD620053B7C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B905D9E81B2FCD620053B7C2 /* ImagePickerTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerTestTests.swift; sourceTree = "<group>"; };
+		B905D9F21B31B7130053B7C2 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				B905D9D91B2FCD610053B7C2 /* Images.xcassets */,
 				B905D9DB1B2FCD610053B7C2 /* LaunchScreen.xib */,
 				B905D9D01B2FCD610053B7C2 /* Supporting Files */,
+				B905D9F21B31B7130053B7C2 /* Meme.swift */,
 			);
 			path = ImagePickerTest;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B905D9F31B31B7130053B7C2 /* Meme.swift in Sources */,
 				B905D9D51B2FCD610053B7C2 /* ViewController.swift in Sources */,
 				B905D9D31B2FCD610053B7C2 /* AppDelegate.swift in Sources */,
 			);
@@ -411,6 +415,7 @@
 				B905D9EE1B2FCD620053B7C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B905D9EF1B2FCD620053B7C2 /* Build configuration list for PBXNativeTarget "ImagePickerTestTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +424,7 @@
 				B905D9F11B2FCD620053B7C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

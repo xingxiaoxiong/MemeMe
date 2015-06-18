@@ -15,6 +15,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var bottomToolbar: UIToolbar!
+    var memedImage:UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,11 +38,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomTextField.textAlignment = .Center
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.delegate = self
+        
+        shareButton.enabled = false
     }
     
     override func viewWillAppear(animated: Bool) {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         self.subscribeToKeyboardNotifications()
+        
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -68,6 +76,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let pickedImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             self.imageView.image = pickedImage
+            self.shareButton.enabled = true
             self.dismissViewControllerAnimated(true, completion: nil)
         }
         
@@ -107,6 +116,42 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.CGRectValue().height
+    }
+    
+    func save() {
+        //Create the meme
+        var meme = Meme(topText:topTextField.text, bottomText: bottomTextField.text,
+            image: imageView.image, memedImage: memedImage)
+    }
+    
+    @IBAction func shareButtonTapped(sender: UIBarButtonItem) {
+        memedImage = generateMemedImage()
+        let activityVC = UIActivityViewController(activityItems: [memedImage!], applicationActivities: nil)
+        activityVC.completionWithItemsHandler = {
+            activity, success, items, error in
+            self.save()
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        self.presentViewController(activityVC, animated: true, completion: nil)
+    }
+
+    
+    func generateMemedImage() -> UIImage
+    {
+        self.navigationController?.setToolbarHidden(true, animated: true)
+        //self.bottomToolbar.hidden = true
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawViewHierarchyInRect(self.view.frame,
+            afterScreenUpdates: true)
+        let memedImage : UIImage =
+        UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        self.navigationController?.setToolbarHidden(false, animated: true)
+        //self.bottomToolbar.hidden = false
+        
+        return memedImage
     }
 
 }
