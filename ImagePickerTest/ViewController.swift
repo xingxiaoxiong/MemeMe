@@ -122,6 +122,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //Create the meme
         var meme = Meme(topText:topTextField.text, bottomText: bottomTextField.text,
             image: imageView.image, memedImage: memedImage)
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     @IBAction func shareButtonTapped(sender: UIBarButtonItem) {
