@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gVh-FL-ldP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,36 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Vk-za-o1X">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem title="Pick" id="OY1-dD-Elo">
-                                        <connections>
-                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="hhP-YC-Q3l"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="snI-oe-tZ8"/>
-                                    <barButtonItem systemItem="camera" id="jEy-PG-G50">
-                                        <connections>
-                                            <action selector="takeAnPhoto:" destination="BYZ-38-t0r" id="76s-CR-RZ9"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ugc-xJ-gjz">
-                                <rect key="frame" x="100" y="87" width="400" height="300"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ugc-xJ-gjz">
+                                <rect key="frame" x="100" y="131" width="400" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="H9w-0P-4CB"/>
                                     <constraint firstAttribute="width" constant="400" id="Z2H-pm-G85"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CW0-lH-gdp">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CW0-lH-gdp">
                                 <rect key="frame" x="288" y="501" width="26" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cxl-d3-Iur">
-                                <rect key="frame" x="288" y="38" width="26" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cxl-d3-Iur">
+                                <rect key="frame" x="288" y="82" width="26" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
@@ -57,13 +40,23 @@
                             <constraint firstItem="Cxl-d3-Iur" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="APP-DM-PeP"/>
                             <constraint firstItem="ugc-xJ-gjz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="J5n-Jb-T7K"/>
                             <constraint firstAttribute="centerX" secondItem="ugc-xJ-gjz" secondAttribute="centerX" id="dbc-oZ-FUi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0Vk-za-o1X" secondAttribute="trailing" constant="-16" id="eZI-a8-jW9"/>
-                            <constraint firstItem="0Vk-za-o1X" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="jKb-zg-brz"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Vk-za-o1X" secondAttribute="bottom" id="jg5-yS-shs"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CW0-lH-gdp" secondAttribute="bottom" constant="69" id="q3b-DH-Kdg"/>
                             <constraint firstAttribute="centerX" secondItem="Cxl-d3-Iur" secondAttribute="centerX" constant="-0.5" id="zVe-jd-rnK"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Pick" id="qnG-2O-zv1">
+                            <connections>
+                                <action selector="pickAnImage:" destination="BYZ-38-t0r" id="7tE-Np-4OK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="91I-BY-syB"/>
+                        <barButtonItem systemItem="camera" id="Wfv-6P-rjb">
+                            <connections>
+                                <action selector="takeAnPhoto:" destination="BYZ-38-t0r" id="Isd-9Z-iuU"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="orb-Yz-ybA">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="Xe2-sT-qDH">
                             <connections>
@@ -71,10 +64,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bottomTextField" destination="CW0-lH-gdp" id="uWj-gH-3TG"/>
-                        <outlet property="bottomToolbar" destination="0Vk-za-o1X" id="j3a-6c-mUI"/>
-                        <outlet property="cameraButton" destination="jEy-PG-G50" id="Bc9-32-9JB"/>
+                        <outlet property="cameraButton" destination="Wfv-6P-rjb" id="HGz-gq-lcC"/>
                         <outlet property="imageView" destination="ugc-xJ-gjz" id="p8P-qd-1AM"/>
                         <outlet property="shareButton" destination="Xe2-sT-qDH" id="EKR-KH-wrj"/>
                         <outlet property="topTextField" destination="Cxl-d3-Iur" id="C13-zN-7Xa"/>
@@ -82,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997" y="315"/>
+            <point key="canvasLocation" x="612" y="-378"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ILS-UX-AlN">

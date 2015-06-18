@@ -16,7 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomTextField: UITextField!
     
     @IBOutlet weak var shareButton: UIBarButtonItem!
-    @IBOutlet weak var bottomToolbar: UIToolbar!
+    //@IBOutlet weak var bottomToolbar: UIToolbar!
     var memedImage:UIImage?
     
     override func viewDidLoad() {
@@ -46,7 +46,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         self.subscribeToKeyboardNotifications()
         
-        
+        self.navigationController?.setToolbarHidden(false, animated: true)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -142,7 +142,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func generateMemedImage() -> UIImage
     {
         self.navigationController?.setToolbarHidden(true, animated: true)
-        //self.bottomToolbar.hidden = true
+        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame,
@@ -152,7 +152,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIGraphicsEndImageContext()
         
         self.navigationController?.setToolbarHidden(false, animated: true)
-        //self.bottomToolbar.hidden = false
         
         return memedImage
     }
