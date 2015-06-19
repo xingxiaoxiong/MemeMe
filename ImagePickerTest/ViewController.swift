@@ -29,15 +29,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             NSStrokeWidthAttributeName : 3.0
         ]
         
+        //topTextField.backgroundColor = UIColor.clearColor()
         topTextField.text = "TOP"
         topTextField.textAlignment = .Center
         topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.delegate = self
         
+        //bottomTextField.backgroundColor = UIColor.clearColor()
         bottomTextField.text = "BOTTOM"
         bottomTextField.textAlignment = .Center
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.delegate = self
+        
+        //imageView.addSubview(topTextField)
+        //imageView.addSubview(bottomTextField)
         
         shareButton.enabled = false
     }
@@ -47,6 +52,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.subscribeToKeyboardNotifications()
         
         self.navigationController?.setToolbarHidden(false, animated: true)
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
