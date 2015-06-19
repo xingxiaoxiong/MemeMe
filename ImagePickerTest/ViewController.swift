@@ -26,7 +26,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             NSStrokeColorAttributeName : UIColor.blackColor(),
             NSForegroundColorAttributeName : UIColor.whiteColor(),
             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName : 3.0
+            NSStrokeWidthAttributeName : -2.0
         ]
         
         //topTextField.backgroundColor = UIColor.clearColor()
@@ -43,6 +43,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //imageView.addSubview(topTextField)
         //imageView.addSubview(bottomTextField)
+        
         
         shareButton.enabled = false
     }
