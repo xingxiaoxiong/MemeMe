@@ -158,20 +158,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iRI-Ue-TD3">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="167" height="157"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2GM-NU-hXN">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SentMemeCell" id="2GM-NU-hXN" customClass="SentMemesCollectionViewCell" customModule="ImagePickerTest" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="167" height="157"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L9s-Dn-8gC">
+                                            <rect key="frame" x="0.0" y="0.0" width="167" height="157"/>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="L9s-Dn-8gC" firstAttribute="top" secondItem="2GM-NU-hXN" secondAttribute="topMargin" constant="-8" id="5AD-Kf-XhD"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="L9s-Dn-8gC" secondAttribute="trailing" constant="-8" id="BqF-xd-amp"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="L9s-Dn-8gC" secondAttribute="bottom" constant="-8" id="kqo-YC-Iwq"/>
+                                    <constraint firstItem="L9s-Dn-8gC" firstAttribute="leading" secondItem="2GM-NU-hXN" secondAttribute="leadingMargin" constant="-8" id="uU1-e6-NNH"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="memedImage" destination="L9s-Dn-8gC" id="39t-NE-5ap"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -182,10 +196,13 @@
                     <navigationItem key="navigationItem" title="Sent Memes" id="NlA-ep-kTq">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="0Ft-N9-PzF">
                             <connections>
-                                <segue destination="GTU-EV-KDw" kind="presentation" id="KDE-JY-pT5"/>
+                                <segue destination="GTU-EV-KDw" kind="presentation" identifier="" id="KDE-JY-pT5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="oc9-Of-ogU" kind="show" identifier="SentMemesCollectionToDetailMeme" id="fhD-r2-dbN"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZn-pV-SrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -289,6 +306,7 @@
         <image name="Table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KDE-JY-pT5"/>
+        <segue reference="Viv-qt-25g"/>
+        <segue reference="6Mn-3l-mNi"/>
     </inferredMetricsTieBreakers>
 </document>

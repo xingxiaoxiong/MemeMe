@@ -8,9 +8,11 @@
 
 import UIKit
 
-let reuseIdentifier = "Cell"
+let reuseIdentifier = "SentMemeCell"
 
 class SentMemesCollectionViewController: UICollectionViewController {
+    
+    var memes: [Meme]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,10 @@ class SentMemesCollectionViewController: UICollectionViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        memes = appDelegate.memes
+        
         self.collectionView?.reloadData()
     }
 
@@ -37,21 +43,38 @@ class SentMemesCollectionViewController: UICollectionViewController {
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         //#warning Incomplete method implementation -- Return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //#warning Incomplete method implementation -- Return the number of items in the section
-        return 0
+        return memes.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SentMemeCell", forIndexPath: indexPath) as? SentMemesCollectionViewCell
     
         // Configure the cell
+        cell?.memedImage.image = memes[indexPath.row].memedImage
     
-        return cell
+        return cell!
+    }
+    
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("SentMemesCollectionToDetailMeme", sender: self)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SentMemesCollectionToDetailMeme"{
+            
+            let cell = sender as! SentMemesCollectionViewCell
+            let path = self.collectionView?.indexPathForCell(cell)
+            let controller = segue.destinationViewController as! MemeDetailViewController
+            controller.meme = memes[path!.row]
+        }
     }
 
     // MARK: UICollectionViewDelegate
