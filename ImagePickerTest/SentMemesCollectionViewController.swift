@@ -21,7 +21,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.registerClass(SentMemesCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -53,27 +53,27 @@ class SentMemesCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SentMemeCell", forIndexPath: indexPath) as? SentMemesCollectionViewCell
+        let cell = self.collectionView!.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SentMemesCollectionViewCell
     
         // Configure the cell
-        cell?.memedImage.image = memes[indexPath.row].memedImage
+        cell.memedImage?.image = memes[indexPath.row].memedImage!
     
-        return cell!
+        return cell
     }
     
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("SentMemesCollectionToDetailMeme", sender: self)
+        self.performSegueWithIdentifier("SentMemesCollectionToDetailMeme", sender: indexPath)
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SentMemesCollectionToDetailMeme"{
             
-            let cell = sender as! SentMemesCollectionViewCell
-            let path = self.collectionView?.indexPathForCell(cell)
+            let path = sender as! NSIndexPath
+            //let path = self.collectionView?.indexPathForCell(cell)
             let controller = segue.destinationViewController as! MemeDetailViewController
-            controller.meme = memes[path!.row]
+            controller.meme = memes[path.row]
         }
     }
 
