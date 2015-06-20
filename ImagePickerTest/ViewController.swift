@@ -16,6 +16,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomTextField: UITextField!
     
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    
+    var tappedTextField: UITextField?
     //@IBOutlet weak var bottomToolbar: UIToolbar!
     var memedImage:UIImage?
     
@@ -92,6 +94,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func textFieldDidBeginEditing(textField: UITextField) {
         textField.text = ""
+        tappedTextField = textField
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -122,6 +125,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        
+        if tappedTextField == topTextField {
+            return 0.0
+        }
         return keyboardSize.CGRectValue().height
     }
     
