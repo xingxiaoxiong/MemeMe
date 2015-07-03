@@ -31,16 +31,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         ]
         
         topTextField.text = "TOP"
-        topTextField.textAlignment = .Center
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.delegate = self
+        setupTextField(topTextField, attributes: memeTextAttributes)
         
         bottomTextField.text = "BOTTOM"
-        bottomTextField.textAlignment = .Center
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.delegate = self
+        setupTextField(bottomTextField, attributes: memeTextAttributes)
         
         shareButton.enabled = false
+    }
+    
+    func setupTextField(textField: UITextField?, attributes: [NSObject:AnyObject]) {
+        textField?.textAlignment = .Center
+        textField?.defaultTextAttributes = attributes
+        textField?.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
