@@ -18,7 +18,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
     var tappedTextField: UITextField?
-    //@IBOutlet weak var bottomToolbar: UIToolbar!
     var memedImage:UIImage?
     
     override func viewDidLoad() {
@@ -31,31 +30,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             NSStrokeWidthAttributeName : -2.0
         ]
         
-        //topTextField.backgroundColor = UIColor.clearColor()
         topTextField.text = "TOP"
         topTextField.textAlignment = .Center
         topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.delegate = self
         
-        //bottomTextField.backgroundColor = UIColor.clearColor()
         bottomTextField.text = "BOTTOM"
         bottomTextField.textAlignment = .Center
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.delegate = self
         
-        //imageView.addSubview(topTextField)
-        //imageView.addSubview(bottomTextField)
-        
-        
         shareButton.enabled = false
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         self.subscribeToKeyboardNotifications()
         
         self.navigationController?.setToolbarHidden(false, animated: true)
         
+        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 0.8)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -74,7 +70,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
         self.presentViewController(imagePicker, animated: true, completion: nil)
-
     }
     
     
@@ -88,9 +83,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.shareButton.enabled = true
             self.dismissViewControllerAnimated(true, completion: nil)
         }
-        
     }
-    
     
     func textFieldDidBeginEditing(textField: UITextField) {
         textField.text = ""
@@ -124,7 +117,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         
         if tappedTextField == topTextField {
             return 0.0
@@ -133,7 +126,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func save() {
-        //Create the meme
         var meme = Meme(topText:topTextField.text, bottomText: bottomTextField.text,
             image: imageView.image, memedImage: memedImage)
         let object = UIApplication.sharedApplication().delegate
@@ -146,8 +138,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let activityVC = UIActivityViewController(activityItems: [memedImage!], applicationActivities: nil)
         activityVC.completionWithItemsHandler = {
             activity, success, items, error in
-            self.save()
-            self.dismissViewControllerAnimated(true, completion: nil)
+            if success == true {
+                self.save()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
         }
         self.presentViewController(activityVC, animated: true, completion: nil)
     }
@@ -155,8 +149,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func generateMemedImage() -> UIImage
     {
-        //self.navigationController?.setToolbarHidden(true, animated: true)
-        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame,
@@ -164,9 +156,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
-        //self.navigationController?.setToolbarHidden(false, animated: true)
-        
+
         return memedImage
     }
 
