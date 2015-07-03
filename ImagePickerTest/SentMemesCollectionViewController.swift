@@ -36,10 +36,6 @@ class SentMemesCollectionViewController: UICollectionViewController {
         self.collectionView?.reloadData()
     }
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count
     }
