@@ -40,8 +40,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func setupTextField(textField: UITextField?, attributes: [NSObject:AnyObject]) {
-        textField?.textAlignment = .Center
         textField?.defaultTextAttributes = attributes
+        textField?.textAlignment = .Center
         textField?.delegate = self
     }
     

@@ -20,13 +20,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ugc-xJ-gjz">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cxl-d3-Iur">
-                                <rect key="frame" x="16" y="120" width="568" height="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CW0-lH-gdp">
+                                <rect key="frame" x="16" y="463" width="568" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CW0-lH-gdp">
-                                <rect key="frame" x="296" y="463" width="9" height="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cxl-d3-Iur">
+                                <rect key="frame" x="16" y="120" width="568" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
@@ -34,12 +34,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ugc-xJ-gjz" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="1k9-a0-ZfX"/>
-                            <constraint firstItem="Cxl-d3-Iur" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="3NS-Ne-0Jq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ugc-xJ-gjz" secondAttribute="bottom" constant="-44" id="3yk-Rx-1sg"/>
                             <constraint firstAttribute="centerX" secondItem="CW0-lH-gdp" secondAttribute="centerX" constant="-0.5" id="7b9-rJ-LXa"/>
+                            <constraint firstItem="CW0-lH-gdp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="9zo-jE-yjA"/>
                             <constraint firstItem="ugc-xJ-gjz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="Zhu-iq-k60"/>
                             <constraint firstItem="ugc-xJ-gjz" firstAttribute="top" secondItem="Cxl-d3-Iur" secondAttribute="top" constant="-120" id="eJn-p9-g2n"/>
                             <constraint firstAttribute="centerX" secondItem="ugc-xJ-gjz" secondAttribute="centerX" id="jLt-tI-u0Y"/>
+                            <constraint firstItem="Cxl-d3-Iur" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qea-Pk-uPB"/>
                             <constraint firstItem="ugc-xJ-gjz" firstAttribute="bottom" secondItem="CW0-lH-gdp" secondAttribute="bottom" constant="120" id="xKT-GG-6Ny"/>
                             <constraint firstAttribute="centerX" secondItem="Cxl-d3-Iur" secondAttribute="centerX" constant="-0.5" id="zVe-jd-rnK"/>
                         </constraints>
@@ -118,7 +119,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jy2-gC-YYE">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
